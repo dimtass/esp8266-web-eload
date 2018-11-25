@@ -54,14 +54,12 @@ void loop() {
     static unsigned long l = 0;                     // only initialized once
     unsigned long t;                                // local var: type declaration at compile time
 
-
     t = millis();
-
-    if((t - l) > 1000) {                            // update temp every 1 second
-        analogSample(); yield();
-        webSocket.sendTXT(socketNumber, "#adc=" + String(ADCvalue));
+    if((t - l) > 200) {                            // update temp every 1 second
+        uint16_t adc_value = analogSample();
+        webSocket.sendTXT(socketNumber, "#adc=" + String(adc_value));
         l = t;                                      // typical runtime this IF{} == 300uS - 776uS measured
-        Serial.print("ADC:");Serial.println(ADCvalue);
+        Serial.print("ADC:");Serial.println(adc_value);
         yield();
     }
 
