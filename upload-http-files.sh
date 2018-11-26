@@ -1,6 +1,6 @@
 #!/bin/bash
-: ${MKSPIFFS:=/opt/sloeber/arduinoPlugin/packages/esp8266/tools/mkspiffs/0.2.0/mkspiffs}
-: ${ESPTOOL:=/opt/sloeber/arduinoPlugin/packages/esp8266/tools/esptool/0.4.13/esptool}
+: ${MKSPIFFS:=~/.arduino15/packages/esp8266/tools/mkspiffs/0.2.0/mkspiffs}
+: ${ESPTOOL:=~/.arduino15/packages/esp8266/tools/esptool/0.4.13/esptool}
 : ${DATA_FOLDER:="$PWD/data/"}
 : ${PAGE_SIZE:=256}
 : ${BLOCK_SIZE:=8192}
