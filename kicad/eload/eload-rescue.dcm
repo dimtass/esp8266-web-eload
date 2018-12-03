@@ -1,3 +1,52 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP 12AX7
+D 12AX7 type Double Triode Vacuum tube
+$ENDCMP
+#
+$CMP 4093
+D Quad 2-input NAND Schmitt Trigger, logic symbol
+F /home/walter/Documenti/Elettronica/DATA_SHEET/Elettronici/Integrati/Digitali/Porte_logiche/NAND/NXP_HEF4093B.pdf
+$ENDCMP
+#
+$CMP 6N138
+D Single channel, High Speed Optocouplers
+$ENDCMP
+#
+$CMP 8Devices_Carambola2
+D 8Devices Carambola 2 802.11 b/g/n Wireless Network module
+F /home/walter/Documenti/Elettronica/DATA_SHEET/Elettronici/Ibridi/8DEV_CARAMBOLA2.pdf
+$ENDCMP
+#
+$CMP AT90USB82_162
+D 8-Bit AVR Microcontroller with 8/16KB ISP Flash and USB Controller
+K AT90USB82 AT90USB162
+F /home/walter/Documenti/Elettronica/DATA_SHEET/Elettronici/Integrati/Digitali/Microcontrollori/Atmel/ATMEL_AT90USBx.pdf
+$ENDCMP
+#
+$CMP BALUN_2450BM15A0002
+D Balun filter for TI CC253x, CC254x, CC257x, CC853x, CC852x
+$ENDCMP
+#
+$CMP BC807DS
+D BC807DS
+F /home/walter/Documenti/Elettronica/DATA_SHEET/Elettronici/Discreti/Transistor/BJT/PNP/NXP_BC807DS.pdf
+$ENDCMP
+#
+$CMP FDP6030BL
+D 40A, 30V, 24mOhm Rds, N-Channel Logic Level PowerTrench MOSFET
+K N-Channel MOSFET
+F https://www.onsemi.com/pub/Collateral/FDP6030BL-D.PDF
+$ENDCMP
+#
+$CMP HSSR-8200
+D 200V/160ohm small signal solid state relay
+$ENDCMP
+#
+$CMP SP6661
+D High Frequency 200mA Charge Pump Inverter or Doubler
+K Charge pump inverter doubler
+F https://www.exar.com/ds/sp6661.pdf
+$ENDCMP
+#
 #End Doc Library
