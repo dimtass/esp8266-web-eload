@@ -1,0 +1,165 @@
+EESchema Schematic File Version 4
+LIBS:eload-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 6 6
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Analog_DAC:MCP4821 U601
+U 1 1 5C1D4473
+P 4550 2900
+F 0 "U601" H 5000 3150 50  0000 L CNN
+F 1 "MCP4821" H 4850 2600 50  0000 L CNN
+F 2 "SMD_Packages:SOIC-8-N" H 5450 2800 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/22244B.pdf" H 5450 2800 50  0001 C CNN
+	1    4550 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0601
+U 1 1 5C1D459D
+P 4550 1800
+F 0 "#PWR0601" H 4550 1650 50  0001 C CNN
+F 1 "+5V" H 4565 1973 50  0000 C CNN
+F 2 "" H 4550 1800 50  0001 C CNN
+F 3 "" H 4550 1800 50  0001 C CNN
+	1    4550 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0602
+U 1 1 5C1D45C9
+P 4550 3400
+F 0 "#PWR0602" H 4550 3150 50  0001 C CNN
+F 1 "GND" H 4555 3227 50  0000 C CNN
+F 2 "" H 4550 3400 50  0001 C CNN
+F 3 "" H 4550 3400 50  0001 C CNN
+	1    4550 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 3300 4550 3400
+$Comp
+L Device:R R602
+U 1 1 5C1D4640
+P 3900 2450
+F 0 "R602" H 3970 2496 50  0000 L CNN
+F 1 "10K" H 3970 2405 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3830 2450 50  0001 C CNN
+F 3 "~" H 3900 2450 50  0001 C CNN
+	1    3900 2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R601
+U 1 1 5C1D469A
+P 3600 2450
+F 0 "R601" H 3670 2496 50  0000 L CNN
+F 1 "10K" H 3670 2405 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 3530 2450 50  0001 C CNN
+F 3 "~" H 3600 2450 50  0001 C CNN
+	1    3600 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 2700 3900 2700
+Wire Wire Line
+	3900 2700 3900 2600
+Wire Wire Line
+	4050 2800 3600 2800
+Wire Wire Line
+	3600 2800 3600 2600
+Wire Wire Line
+	4550 1800 4550 1950
+Wire Wire Line
+	3900 2300 3900 1950
+Wire Wire Line
+	3900 1950 4550 1950
+Connection ~ 4550 1950
+Wire Wire Line
+	4550 1950 4550 2500
+$Comp
+L Device:C_Small C601
+U 1 1 5C1D4850
+P 4700 2200
+F 0 "C601" H 4792 2246 50  0000 L CNN
+F 1 "100n" H 4792 2155 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 4700 2200 50  0001 C CNN
+F 3 "~" H 4700 2200 50  0001 C CNN
+	1    4700 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C602
+U 1 1 5C1D48D4
+P 5050 2200
+F 0 "C602" H 5142 2246 50  0000 L CNN
+F 1 "1uF" H 5142 2155 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5050 2200 50  0001 C CNN
+F 3 "~" H 5050 2200 50  0001 C CNN
+	1    5050 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0603
+U 1 1 5C1D4B8E
+P 4900 2400
+F 0 "#PWR0603" H 4900 2150 50  0001 C CNN
+F 1 "GND" H 4905 2227 50  0000 C CNN
+F 2 "" H 4900 2400 50  0001 C CNN
+F 3 "" H 4900 2400 50  0001 C CNN
+	1    4900 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5050 2300 5050 2350
+Wire Wire Line
+	5050 2350 4900 2350
+Wire Wire Line
+	4700 2350 4700 2300
+Wire Wire Line
+	4900 2400 4900 2350
+Connection ~ 4900 2350
+Wire Wire Line
+	4900 2350 4700 2350
+Wire Wire Line
+	4550 1950 4700 1950
+Wire Wire Line
+	5050 1950 5050 2100
+Wire Wire Line
+	4700 2100 4700 1950
+Connection ~ 4700 1950
+Wire Wire Line
+	4700 1950 5050 1950
+Wire Wire Line
+	3600 1950 3900 1950
+Wire Wire Line
+	3600 1950 3600 2300
+Connection ~ 3900 1950
+Text HLabel 5350 2900 2    50   Output ~ 0
+DAC_OUT
+Text HLabel 3350 3000 0    50   Input ~ 0
+DAC_SPI_CLK
+Text HLabel 3350 2900 0    50   Input ~ 0
+DAC_SPI_CS
+Text HLabel 3350 3100 0    50   Input ~ 0
+DAC_SPI_DI
+Wire Wire Line
+	4050 2900 3350 2900
+Wire Wire Line
+	4050 3000 3350 3000
+Wire Wire Line
+	4050 3100 3350 3100
+Wire Wire Line
+	5350 2900 5150 2900
+$EndSCHEMATC
