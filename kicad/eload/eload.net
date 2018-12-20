@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /ssd/rnd2/bitbucket/esp8266-web-eload/kicad/eload/eload.sch)
-    (date "Do 20 Dez 2018 00:40:37 CET")
+    (date "Do 20 Dez 2018 01:14:59 CET")
     (tool "Eeschema 5.0.2-bee76a0~70~ubuntu18.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
