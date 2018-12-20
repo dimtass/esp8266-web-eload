@@ -5,10 +5,12 @@ by using the esp8266-E12 module and some other electronic components.
 This version is using the Arduino ESP8266 for simplicity, but I would
 like to make this soon also baremetal and use the ESP API instead.
 
+![Electronic load board](eload_pcb.png)
+
 ## Board
 You can also find the scematics to build a small pcb for that.
 As you may already know, the esp8266 has a 10-bit ADC, but it lacks
-an DAC. Therefore, we need an external SPI DAC. You can use any DAC
+a DAC. Therefore, we need an external SPI DAC. You can use any DAC
 but as it is a home-project I prefer to use a bit more expensive
 components.
 
@@ -22,19 +24,20 @@ Vgs on the MOSFET up to 4.096V, which means up to 4A with 1Ω load
 resistor. If you need more current, then you can use the `MCP4921`
 opamp which has an external reference, but that also means that you
 need to provide a very clean and stable reference, too.
-* `OPA2340`: 2x single-supply, rail-to-rail opamp. This IC has two
-opamps in the case. I've used one to drive the MOSFET and the other
-as a buffer to drive a voltage divider that is used as feedback and
-is connected to the esp8266's ADC.
+* `MCP6H04`: 4x single-supply, rail-to-rail opamp. This IC has four
+opamps in the case. One is used to multiply the DAC output by a factor
+of 2.2. One is used to drive the MOSFET and another one to buffer
+the negative feedback loop to drive the ADC via a low pass RC filter
+and a voltage divider with a 1/10 ratio.
+* `FT232RL`: A USB to serial IC that is used for two reasons. One
+is to power the circuit with 5V from the USB and the other is to
+flash the esp8266. You need an IC that also has the DTR/RTS signals
+in order to reset the board and put it into flash mode.
 
 The DAC is 12-bit and it can take values 0-2.048V when the gain
 is set to 1x or 0-4.096V when the gain is 2x. Also the ADC is 10-bits
 with max input voltage 3V3, therefore it has 1024 steps. This means
 that you need to use a voltage divider to feed the ADC.
-
-For the voltage divider, you can either use some high precision resistors,
-or a pot. I'm using a pot so I'm able to manually trim the output.
-This might provide a bit better accuracy also.
 
 ## Build
 You need to have the arduino IDE installed. I'm using Linux, so I'm
@@ -86,7 +89,10 @@ Finally, run the `upload-http-files.sh` script with the port you've found:
 ./upload-http-files.sh /dev/ttyUSB0
 ```
 
-This script will upload the exacutable binary, create a file system binary
-and also upload that. In this script you need to check that the paths for
-the `esptool` and `mkspiffs` are set correctly in the `ESPTOOL` and `MKSPIFFS`
-variables.
+You might need to change the paths of the `mkspiffs` and `esptool` for the
+script to work properly. If you want to be able to upload the web interface
+from the Arduino IDE, then have a look to this plugin [here](https://github.com/esp8266/arduino-esp8266fs-plugin).
+This will integrate this functionality in the IDE. I'm using the script
+as it flashes everything on one go, but for development you don't have
+to upload everything, so if you just change something in the code and the
+web interface remains the same or the opposite, then better use the IDE.
