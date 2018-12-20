@@ -95,5 +95,5 @@ Dimitris Tassopoulos\n
 Text Notes 8200 7650 0    79   ~ 0
 01.10.2018
 Text Notes 10600 7650 0    79   ~ 0
-1.0
+0.2
 $EndSCHEMATC

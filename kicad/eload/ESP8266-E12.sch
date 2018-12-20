@@ -14,9 +14,9 @@ Comment2 ""
 Comment3 ""
 Comment4 ""
 $EndDescr
-Text HLabel 5650 2600 2    50   Input ~ 0
+Text HLabel 5800 2550 2    50   Input ~ 0
 ESP_RST
-Text HLabel 5650 2750 2    50   Input ~ 0
+Text HLabel 5800 2700 2    50   Input ~ 0
 ESP_ADC
 Wire Wire Line
 	5150 4350 4500 4350
@@ -126,7 +126,7 @@ Wire Wire Line
 	6000 5850 6000 5350
 Wire Wire Line
 	6100 5850 6100 5350
-Text HLabel 4650 2450 2    50   Output ~ 0
+Text HLabel 4800 2400 2    50   Output ~ 0
 ESP_TXD0
 $Comp
 L power:GND #PWR0208
@@ -606,19 +606,19 @@ Wire Notes Line
 	7850 2150 4350 2150
 Text Notes 4400 2250 0    50   ~ 0
 PIN exports:
-Text Label 4850 2400 2    50   ~ 0
+Text Label 4650 2400 2    50   ~ 0
 TXD0
-Text HLabel 4650 2600 2    50   Input ~ 0
+Text HLabel 4800 2550 2    50   Input ~ 0
 ESP_RXD0
-Text Label 4850 2550 2    50   ~ 0
+Text Label 4650 2550 2    50   ~ 0
 RXD0
 Wire Wire Line
-	4500 2450 4650 2450
+	4650 2400 4800 2400
 Wire Wire Line
-	4500 2600 4650 2600
-Text Label 5250 2450 0    50   ~ 0
+	4650 2550 4800 2550
+Text Label 5400 2400 0    50   ~ 0
 GPIO0
-Text HLabel 5650 2450 2    50   UnSpc ~ 0
+Text HLabel 5800 2400 2    50   UnSpc ~ 0
 ESP_GPIO0
 Text Label 4500 4150 0    50   ~ 0
 RESET
@@ -632,16 +632,16 @@ Text Label 3350 2300 2    50   ~ 0
 RESET
 Text Label 3350 2450 2    50   ~ 0
 CH_PD
-Text Label 5250 2750 0    50   ~ 0
+Text Label 5400 2700 0    50   ~ 0
 ADC
 Wire Wire Line
-	5250 2750 5650 2750
+	5400 2700 5800 2700
 Wire Wire Line
-	5250 2450 5650 2450
-Text Label 5250 2600 0    50   ~ 0
+	5400 2400 5800 2400
+Text Label 5400 2550 0    50   ~ 0
 RESET
 Wire Wire Line
-	5650 2600 5250 2600
+	5800 2550 5400 2550
 Text Label 10050 1500 2    50   ~ 0
 ADC
 Text Label 10050 2600 2    50   ~ 0
@@ -652,30 +652,30 @@ Text Label 10150 5200 2    50   ~ 0
 RXD0
 Text Label 10150 5300 2    50   ~ 0
 TXD0
-Text Label 6350 2450 0    50   ~ 0
+Text Label 6500 2400 0    50   ~ 0
 HSPI_MISO
-Text Label 6350 2550 0    50   ~ 0
+Text Label 6500 2500 0    50   ~ 0
 HSPI_MOSI
-Text Label 6350 2650 0    50   ~ 0
+Text Label 6500 2600 0    50   ~ 0
 HSPI_CLK
-Text Label 6350 2750 0    50   ~ 0
+Text Label 6500 2700 0    50   ~ 0
 HSPI_CS
-Text HLabel 6950 2550 2    50   Output ~ 0
+Text HLabel 7100 2500 2    50   Output ~ 0
 ESP_SPI_MOSI
-Text HLabel 6950 2650 2    50   Output ~ 0
+Text HLabel 7100 2600 2    50   Output ~ 0
 ESP_SPI_CLK
-Text HLabel 6950 2750 2    50   Output ~ 0
+Text HLabel 7100 2700 2    50   Output ~ 0
 ESP_SPI_CS0
-Text HLabel 6950 2450 2    50   Input ~ 0
+Text HLabel 7100 2400 2    50   Input ~ 0
 ESP_SPI_MISO
 Wire Wire Line
-	6350 2450 6950 2450
+	6500 2400 7100 2400
 Wire Wire Line
-	6350 2550 6950 2550
+	6500 2500 7100 2500
 Wire Wire Line
-	6350 2650 6950 2650
+	6500 2600 7100 2600
 Wire Wire Line
-	6350 2750 6950 2750
+	6500 2700 7100 2700
 Wire Notes Line
 	7850 2150 7850 2850
 Wire Notes Line
@@ -703,9 +703,11 @@ F 3 "" H 2850 5400 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L ESP8266:ESP-12F U201
+L eload-rescue:ESP-12F-ESP8266 U201
 U 1 1 5BFD93E2
 P 6050 4450
+AR Path="/5BFD93E2" Ref="U201"  Part="1" 
+AR Path="/5BF95C47/5BFD93E2" Ref="U201"  Part="1" 
 F 0 "U201" H 6050 5215 50  0000 C CNN
 F 1 "ESP-12F" H 6050 5124 50  0000 C CNN
 F 2 "RF_Modules:ESP-12E" H 6050 4450 50  0001 C CNN

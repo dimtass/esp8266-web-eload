@@ -4,6 +4,11 @@
 #include <SPI.h>
 #include "HelperFunctions.h"
 
+uint16_t adc_value = 0;
+uint16_t adc_acc = 0;
+uint8_t acc = 0;
+String inData;
+
 //The setup function is called once at startup of the sketch
 void setup()
 {
@@ -44,7 +49,7 @@ void setup()
 	webSocket.begin();                                // start webSocket server
 	webSocket.onEvent(webSocketEvent);                // callback function
 
-	server.begin();
+	//server.begin();
 	Serial.println("HTTP server started");
 	yield();
 }
@@ -54,13 +59,34 @@ void loop() {
     static unsigned long l = 0;                     // only initialized once
     unsigned long t;                                // local var: type declaration at compile time
 
+    adc_acc += analogSample();
+    if ((acc++) >= 64) {
+      adc_value = adc_acc >> 6; // divide by 64
+      acc = 0;
+      adc_acc = 0;
+    }
+
     t = millis();
     if((t - l) > 200) {                            // update temp every 1 second
-        uint16_t adc_value = analogSample();
         webSocket.sendTXT(socketNumber, "#adc=" + String(adc_value));
         l = t;                                      // typical runtime this IF{} == 300uS - 776uS measured
         Serial.print("ADC:");Serial.println(adc_value);
         yield();
+    }
+
+    while (Serial.available() > 0)
+    {
+        char recieved = Serial.read();
+        inData += recieved; 
+
+        // Process message when new line character is recieved
+        if (recieved == '\n')
+        {
+            Serial.print("CAD: ");
+            Serial.print(inData);
+            spiSendDAC(inData.toInt());
+            inData = ""; // Clear recieved buffer
+        }
     }
 
     server.handleClient();

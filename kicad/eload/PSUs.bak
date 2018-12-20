@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:eload-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -268,7 +269,7 @@ VUSB -> 5V
 Text Notes 2100 3750 2    50   ~ 0
 5V -> 3V3
 $Comp
-L SP6661:SP6661 U402
+L eload-rescue:SP6661-SP6661 U402
 U 1 1 5C1AEA3B
 P 7100 2250
 F 0 "U402" H 7100 2715 50  0000 C CNN
@@ -403,4 +404,48 @@ Wire Notes Line
 	8300 1300 5700 1300
 Text Label 6100 1400 2    50   ~ 0
 5V->10V
+$Comp
+L Mechanical:MountingHole H401
+U 1 1 5C06FE21
+P 6250 3700
+F 0 "H401" H 6350 3746 50  0000 L CNN
+F 1 "MountingHole" H 6350 3655 50  0000 L CNN
+F 2 "Mounting_Holes:MountingHole_2.5mm_Pad_Via" H 6250 3700 50  0001 C CNN
+F 3 "~" H 6250 3700 50  0001 C CNN
+	1    6250 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H403
+U 1 1 5C06FEFB
+P 7100 3700
+F 0 "H403" H 7200 3746 50  0000 L CNN
+F 1 "MountingHole" H 7200 3655 50  0000 L CNN
+F 2 "Mounting_Holes:MountingHole_2.5mm_Pad_Via" H 7100 3700 50  0001 C CNN
+F 3 "~" H 7100 3700 50  0001 C CNN
+	1    7100 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H402
+U 1 1 5C06FF49
+P 6250 4050
+F 0 "H402" H 6350 4096 50  0000 L CNN
+F 1 "MountingHole" H 6350 4005 50  0000 L CNN
+F 2 "Mounting_Holes:MountingHole_2.5mm_Pad_Via" H 6250 4050 50  0001 C CNN
+F 3 "~" H 6250 4050 50  0001 C CNN
+	1    6250 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H404
+U 1 1 5C06FFA1
+P 7100 4050
+F 0 "H404" H 7200 4096 50  0000 L CNN
+F 1 "MountingHole" H 7200 4005 50  0000 L CNN
+F 2 "Mounting_Holes:MountingHole_2.5mm_Pad_Via" H 7100 4050 50  0001 C CNN
+F 3 "~" H 7100 4050 50  0001 C CNN
+	1    7100 4050
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

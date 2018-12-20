@@ -17,12 +17,12 @@ $EndDescr
 $Comp
 L eload-rescue:MCP6H04-MCP6H01-2-4 U501
 U 1 1 5C1A499E
-P 4950 3100
-F 0 "U501" H 4975 3465 50  0000 C CNN
-F 1 "MCP6H04" H 4975 3374 50  0000 C CNN
-F 2 "SMD_Packages:SOIC-14_N" H 5000 3100 50  0001 C CNN
-F 3 "" H 5000 3100 50  0001 C CNN
-	1    4950 3100
+P 4850 2750
+F 0 "U501" H 4875 3115 50  0000 C CNN
+F 1 "MCP6H04" H 4875 3024 50  0000 C CNN
+F 2 "SMD_Packages:SOIC-14_N" H 4900 2750 50  0001 C CNN
+F 3 "" H 4900 2750 50  0001 C CNN
+	1    4850 2750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -81,8 +81,6 @@ F 3 "~" H 7150 3200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5400 3100 5500 3100
-Wire Wire Line
 	5900 3300 5750 3300
 Wire Wire Line
 	5750 3300 5750 3650
@@ -100,59 +98,41 @@ Connection ~ 5750 3650
 $Comp
 L Device:R R504
 U 1 1 5C1AA2DC
-P 4950 2550
-F 0 "R504" V 4900 2400 50  0000 C CNN
-F 1 "12K" V 4900 2700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 4880 2550 50  0001 C CNN
-F 3 "~" H 4950 2550 50  0001 C CNN
-	1    4950 2550
+P 4850 3100
+F 0 "R504" V 4800 2950 50  0000 C CNN
+F 1 "12K" V 4800 3250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 4780 3100 50  0001 C CNN
+F 3 "~" H 4850 3100 50  0001 C CNN
+	1    4850 3100
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:R R503
 U 1 1 5C1AA3A7
-P 4150 3000
-F 0 "R503" V 4100 2850 50  0000 C CNN
-F 1 "10K" V 4100 3150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 4080 3000 50  0001 C CNN
-F 3 "~" H 4150 3000 50  0001 C CNN
-	1    4150 3000
+P 4100 3100
+F 0 "R503" V 4050 2950 50  0000 C CNN
+F 1 "10K" V 4050 3250 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 4030 3100 50  0001 C CNN
+F 3 "~" H 4100 3100 50  0001 C CNN
+	1    4100 3100
 	0    1    1    0   
 $EndComp
-Wire Wire Line
-	5100 2550 5500 2550
-Wire Wire Line
-	5500 2550 5500 3100
-Connection ~ 5500 3100
-Wire Wire Line
-	5500 3100 5900 3100
-Wire Wire Line
-	4300 3000 4450 3000
-Wire Wire Line
-	4800 2550 4450 2550
-Wire Wire Line
-	4450 2550 4450 3000
-Connection ~ 4450 3000
-Wire Wire Line
-	4450 3000 4550 3000
 $Comp
 L power:GND #PWR0504
 U 1 1 5C1AA650
-P 4550 3400
-F 0 "#PWR0504" H 4550 3150 50  0001 C CNN
-F 1 "GND" H 4555 3227 50  0000 C CNN
-F 2 "" H 4550 3400 50  0001 C CNN
-F 3 "" H 4550 3400 50  0001 C CNN
-	1    4550 3400
+P 3900 3250
+F 0 "#PWR0504" H 3900 3000 50  0001 C CNN
+F 1 "GND" H 3905 3077 50  0000 C CNN
+F 2 "" H 3900 3250 50  0001 C CNN
+F 3 "" H 3900 3250 50  0001 C CNN
+	1    3900 3250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	5200 4250 5250 4250
 Wire Wire Line
-	4550 3400 4550 3200
-Wire Wire Line
-	4000 3000 3150 3000
-Text HLabel 3150 3000 0    50   Input ~ 0
+	4450 2650 3600 2650
+Text HLabel 3600 2650 0    50   Input ~ 0
 DAC_IN
 $Comp
 L power:GND #PWR0502
@@ -412,8 +392,8 @@ $Comp
 L Device:R R502
 U 1 1 5C1C06AA
 P 3900 4150
-F 0 "R502" V 3850 4000 50  0000 C CNN
-F 1 "1M" V 3850 4350 50  0000 C CNN
+F 0 "R502" V 3850 3950 50  0000 C CNN
+F 1 "10K" V 3850 4350 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 3830 4150 50  0001 C CNN
 F 3 "~" H 3900 4150 50  0001 C CNN
 	1    3900 4150
@@ -423,8 +403,8 @@ $Comp
 L Device:R R501
 U 1 1 5C1C0728
 P 3500 4400
-F 0 "R501" H 3400 4350 50  0000 C CNN
-F 1 "100K" H 3350 4450 50  0000 C CNN
+F 0 "R501" H 3350 4350 50  0000 C CNN
+F 1 "1K" H 3400 4450 50  0000 C CNN
 F 2 "Resistors_SMD:R_0805_HandSoldering" V 3430 4400 50  0001 C CNN
 F 3 "~" H 3500 4400 50  0001 C CNN
 	1    3500 4400
@@ -452,10 +432,8 @@ Wire Wire Line
 Connection ~ 4200 4150
 Text Notes 3000 4000 0    50   ~ 0
 The voltage divider expects max 10V.\nThis 1/10 ratio will provide an\noutput of max 1V for 10V input.
-Text HLabel 3000 4150 0    50   Output ~ 0
+Text HLabel 2400 4150 0    50   Output ~ 0
 ADC_OUT
-Wire Wire Line
-	3500 4150 3000 4150
 Connection ~ 3500 4150
 Wire Notes Line
 	1400 900  1400 2800
@@ -507,9 +485,9 @@ Wire Notes Line
 	7650 2000 8500 2000
 Wire Notes Line
 	7650 2800 8500 2800
-Text Notes 3600 2750 2    50   ~ 0
+Text Notes 3750 2350 2    50   ~ 0
 DAC range 0-4.096V
-Text Notes 4450 2400 0    50   ~ 0
+Text Notes 4450 2300 0    50   ~ 0
 For max 4.096V input and\nR1=10K, Rf=12K the output\nwill be 9V, which means 9A\non the load
 $Comp
 L Device:C_Small C501
@@ -573,4 +551,77 @@ Wire Wire Line
 Connection ~ 2900 1350
 Wire Wire Line
 	2900 1350 2900 1300
+$Comp
+L Mechanical:Heatsink HS501
+U 1 1 5C072182
+P 7950 3200
+F 0 "HS501" V 7903 3380 50  0000 L CNN
+F 1 "Heatsink" V 7994 3380 50  0000 L CNN
+F 2 "Heatsinks:Heatsink_Fischer_SK104-STCB_35x13mm__2xDrill3.5mm_ScrewM3" H 7962 3200 50  0001 C CNN
+F 3 "" H 7962 3200 50  0001 C CNN
+	1    7950 3200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5300 2750 5300 3100
+Wire Wire Line
+	5300 3100 5900 3100
+Wire Wire Line
+	5300 3100 5000 3100
+Connection ~ 5300 3100
+Wire Wire Line
+	4700 3100 4450 3100
+Wire Wire Line
+	4450 2850 4450 3100
+Connection ~ 4450 3100
+Wire Wire Line
+	4450 3100 4250 3100
+Wire Wire Line
+	3900 3250 3900 3100
+Wire Wire Line
+	3900 3100 3950 3100
+$Comp
+L Device:R R515
+U 1 1 5C1AD622
+P 2800 4150
+F 0 "R515" V 2750 3950 50  0000 C CNN
+F 1 "15K" V 2750 4350 50  0000 C CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" V 2730 4150 50  0001 C CNN
+F 3 "~" H 2800 4150 50  0001 C CNN
+	1    2800 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C503
+U 1 1 5C1AD7B1
+P 3050 4400
+F 0 "C503" H 3142 4446 50  0000 L CNN
+F 1 "10uF" H 3142 4355 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3050 4400 50  0001 C CNN
+F 3 "~" H 3050 4400 50  0001 C CNN
+	1    3050 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0509
+U 1 1 5C1AD933
+P 3050 4650
+F 0 "#PWR0509" H 3050 4400 50  0001 C CNN
+F 1 "GND" H 3055 4477 50  0000 C CNN
+F 2 "" H 3050 4650 50  0001 C CNN
+F 3 "" H 3050 4650 50  0001 C CNN
+	1    3050 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 4150 3050 4150
+Wire Wire Line
+	3050 4300 3050 4150
+Connection ~ 3050 4150
+Wire Wire Line
+	3050 4150 3500 4150
+Wire Wire Line
+	3050 4650 3050 4500
+Wire Wire Line
+	2650 4150 2400 4150
 $EndSCHEMATC
