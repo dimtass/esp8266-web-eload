@@ -13,7 +13,7 @@ function initSlider() {
         <input id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="4095">
       </div>
       <div class="box-minmax">
-        <span>0</span><span>4095</span>
+        <span>0</span><span>9V</span>
       </div>
     </div>
     `;
@@ -23,7 +23,7 @@ function initSlider() {
     var rangeBullet = document.getElementById("rs-bullet");
     
     rangeSlider.oninput = function() {
-        rangeBullet.innerHTML = rangeSlider.value;
+        rangeBullet.innerHTML = Number((rangeSlider.value * 2.2 / 1000).toFixed(2));
         var bulletPosition = (rangeSlider.value /rangeSlider.max);
         rangeBullet.style.left = (bulletPosition * 578) + "px";
         websocket.send('#dac=' + rangeSlider.value);
