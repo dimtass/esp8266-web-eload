@@ -23,10 +23,11 @@ function initSlider() {
     var rangeBullet = document.getElementById("rs-bullet");
     
     rangeSlider.oninput = function() {
-        rangeBullet.innerHTML = Number((rangeSlider.value * 2.2 / 1000).toFixed(2));
-        var bulletPosition = (rangeSlider.value /rangeSlider.max);
-        rangeBullet.style.left = (bulletPosition * 578) + "px";
-        websocket.send('#dac=' + rangeSlider.value);
+      // rangeBullet.innerHTML = rangeSlider.value;
+      rangeBullet.innerHTML = Number((rangeSlider.value * 2.2 / 1000).toFixed(2));
+      var bulletPosition = (rangeSlider.value /rangeSlider.max);
+      rangeBullet.style.left = (bulletPosition * 578) + "px";
+      websocket.send('#dac=' + rangeSlider.value);
     }
     setAdcValue(0);
 }
@@ -35,8 +36,8 @@ window.addEventListener("load", initSlider, false);
 
 function setAdcValue(adc_value) {
   var elem = document.getElementById("adc-bullet");
-  // elem.style.width = (adc_value-1)/1023 * 100 + '%'; 
-  elem.innerHTML = adc_value;
+  // elem.innerHTML = adc_value;
+  elem.innerHTML = Number((adc_value / 100).toFixed(2));
 }
 
 /* Create web socket */

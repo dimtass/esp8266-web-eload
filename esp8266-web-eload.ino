@@ -4,10 +4,11 @@
 #include <SPI.h>
 #include "HelperFunctions.h"
 
-uint16_t adc_value = 0;
-uint16_t adc_acc = 0;
-uint8_t acc = 0;
+int adc_value = 0;
+int adc_acc = 0;
+int acc = 0;
 String inData;
+
 
 //The setup function is called once at startup of the sketch
 void setup()
@@ -49,31 +50,49 @@ void setup()
 	webSocket.begin();                                // start webSocket server
 	webSocket.onEvent(webSocketEvent);                // callback function
 
-	//server.begin();
+	server.begin();
 	Serial.println("HTTP server started");
 	yield();
 }
 
 // The loop function is called in an endless loop
 void loop() {
-    static unsigned long l = 0;                     // only initialized once
-    unsigned long t;                                // local var: type declaration at compile time
+    static unsigned long l,l1 = 0;                     // only initialized once
+    unsigned long t,t1;                                // local var: type declaration at compile time
 
-    adc_acc += analogSample();
-    if ((acc++) >= 64) {
-      adc_value = adc_acc >> 6; // divide by 64
-      acc = 0;
-      adc_acc = 0;
+    /* Every 6 msec read the ADC value and do a low pass filtering
+     * by taking the average of 32 samples. That's a 32*6=192 msec
+     * for each sample. Don't try to read the ADC in the while loop
+     * without a timer because this will make the WiFi break.
+     */
+    t1 = millis();
+    if((t1 - l1) > 6) {
+        l1 = t1;
+        adc_acc += analogRead(A0);
+        yield();
+        if ((acc++) >= 32) {
+          adc_value = adc_acc >> 5; // divide by 32
+          acc = 0;
+          adc_acc = 0;
+        }
     }
 
+    /* Every 200 msec update the web interface with the ADC value */
     t = millis();
-    if((t - l) > 200) {                            // update temp every 1 second
+    if((t - l) > 200) {                           // update temp every 1 second
         webSocket.sendTXT(socketNumber, "#adc=" + String(adc_value));
         l = t;                                      // typical runtime this IF{} == 300uS - 776uS measured
         Serial.print("ADC:");Serial.println(adc_value);
         yield();
     }
 
+    /* Read the UART for DAC values with a \r\n termination.
+     * You just need to send the value, e.g.:
+     *  1024\r\n
+     *  4095\r\n
+     * Min value: 0
+     * Max value: 4095
+     */
     while (Serial.available() > 0)
     {
         char recieved = Serial.read();

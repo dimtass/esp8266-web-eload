@@ -133,10 +133,4 @@ void setupWiFi()
 }
 
 
-uint16_t analogSample()
-{
-    uint16_t adc_value = analogRead(A0);
-    return (adc_value);
-}
-
 #endif /* HELPERFUNCTIONS_H_ */
