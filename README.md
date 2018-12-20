@@ -36,4 +36,57 @@ For the voltage divider, you can either use some high precision resistors,
 or a pot. I'm using a pot so I'm able to manually trim the output.
 This might provide a bit better accuracy also.
 
+## Build
+You need to have the arduino IDE installed. I'm using Linux, so I'm
+describing how to do that on Linux. First, download the IDE from
+[here](https://www.arduino.cc/en/Main/Software). I usually prefer
+specific versions because arduino IDE versions are known to be
+incopatible with each other and some commands may not work between
+versions. Therefore, for this project prefer to use version `1.8.6`
+from [here](https://www.arduino.cc/download_handler.php?f=/arduino-1.8.6-linux64.tar.xz).
+This is the x86_64 Linux version.
 
+Extract the contents somewhere. I prefer `/opt`, for example
+`/opt/arduino-1.8.6`.
+
+Then open a console and run these commands:
+```sh
+mkdir -p ~/Arduino/hardware/esp8266com
+cd ~/Arduino/hardware/esp8266com
+git clone https://github.com/esp8266/Arduino.git esp8266
+cd esp8266/tools
+python get.py
+/opt/arduino-1.8.6/arduino --install-boards esp8266:esp8266 --save-prefs
+```
+
+Then run the Arduino IDE and click `Tools -> Manage Libraries` and search
+for the `websockets by Markus Sattler` library and select version `2.1.1`.
+Then exit the Arduino IDE and from the source code folder run:
+```sh
+./build.sh
+```
+
+If your arduino IDE is not installed in `/opt/arduino-1.8.6` or you're
+using a different version then you need to edit the `build.sh` script
+and change the `ARDUINO=` variable with the correct path.
+
+If everything goes right then you should have a folder named `build` and
+inside that fodler a file named `esp8266-web-eload.ino.bin`.
+
+Then connect you esp8266-E12 board with a USB cable on your computer and
+verify which port is enumerated on it
+```sh
+dmesg | grep tty
+```
+
+Usually it will be the last port listed after you run the above command.
+
+Finally, run the `upload-http-files.sh` script with the port you've found:
+```sh
+./upload-http-files.sh /dev/ttyUSB0
+```
+
+This script will upload the exacutable binary, create a file system binary
+and also upload that. In this script you need to check that the paths for
+the `esptool` and `mkspiffs` are set correctly in the `ESPTOOL` and `MKSPIFFS`
+variables.
