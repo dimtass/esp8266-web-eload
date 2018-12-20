@@ -15,9 +15,15 @@ if test -f "${IMAGE_NAME}"; then
     rm "${IMAGE_NAME}"
 fi
 
+cat <<EOF
+Usage:
+    ./upload-http-files.sh /dev/ttyUSB0
+
+EOF
+
 # Create the web-folder bin
 ${MKSPIFFS} -c ${DATA_FOLDER} -p ${PAGE_SIZE} -b ${BLOCK_SIZE} -s ${IMAGE_SIZE} ${IMAGE_NAME}
 # Flash the program bin
-${ESPTOOL} -cd nodemcu -cb 115200 -cp $1 -ca 0x0 -cz 0x400000 -ca 0x00000 -cf Release/eLoad.bin
+${ESPTOOL} -cd nodemcu -cb 115200 -cp $1 -ca 0x0 -cz 0x400000 -ca 0x00000 -cf build/esp8266-web-eload.ino.bin
 # Flash the web-folder
 esptool -vv -cd nodemcu -cb 115200 -cp $1 -ca 0x300000 -cf ${IMAGE_NAME}
